@@ -1,0 +1,108 @@
+@import '../../../styles/colors.scss';
+
+.button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+
+  &.small {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  &.large {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &.outline {
+    background-color: transparent;
+    border: 2px solid currentColor;
+  }
+
+  &.rounded {
+    border-radius: 12px;
+  }
+}
+
+// Variants
+.primary {
+  background-color: $primary;
+  color: $white;
+
+  &.outline {
+    color: $primary;
+  }
+}
+
+.secondary {
+  background-color: $secondary;
+  color: $white;
+
+  &.outline {
+    color: $secondary;
+  }
+}
+
+.tertiary {
+  background-color: $tertiary;
+  color: $white;
+
+  &.outline {
+    color: $tertiary;
+  }
+}
+
+.danger {
+  background-color: $danger;
+  color: $white;
+
+  &.outline {
+    color: $danger;
+  }
+}
+
+.warning {
+  background-color: $warning;
+  color: $black;
+
+  &.outline {
+    color: $warning;
+  }
+}
+
+.success {
+  background-color: $success;
+  color: $white;
+
+  &.outline {
+    color: $success;
+  }
+}
+
+.info {
+  background-color: $info;
+  color: $white;
+
+  &.outline {
+    color: $info;
+  }
+}
+
+.transparent {
+  background-color: transparent;
+  color: $darkGray;
+
+  &.outline {
+    color: $darkGray;
+    border: 2px solid $darkGray;
+  }
+}

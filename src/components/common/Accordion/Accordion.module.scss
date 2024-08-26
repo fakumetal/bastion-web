@@ -1,0 +1,51 @@
+@import '../../../styles/colors.scss';
+
+.accordion {
+  border: 1px solid $primary;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  width: 675px;
+}
+
+.title {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: $secondary;
+  background-color: $primary;
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  max-height: 30px;
+
+  .icon {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: height 500ms ease-in-out;
+  transition: max-height 500ms ease-in-out;
+  padding: 0 1rem;
+
+  &.open {
+    height: fit-content;
+    max-height: 1000px;
+    padding: 1rem;
+    transition: max-height 500ms ease-in-out;
+  }
+}
+

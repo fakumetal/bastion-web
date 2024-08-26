@@ -1,0 +1,42 @@
+.introBanner {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+
+  .introImageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+
+    .introImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+
+    .imageTextContainer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .imageTitle {
+        color: rgb(0, 0, 0);
+        text-align: center;
+      }
+  
+      .imageSubtitle {
+        margin-top: 16px;
+        color: rgb(0, 0, 0);
+        text-align: center;
+      }
+    }
+  }
+}

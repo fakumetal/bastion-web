@@ -1,0 +1,82 @@
+@import "../../../../../styles/colors.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  scroll-margin-top: 95px;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: space-around;
+    margin: 40px 10px;
+
+    .infoContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      margin-left: 40px;
+
+      .text { 
+        text-align: justify;
+        width: 438px;
+      }
+
+      .subtitle {
+        margin-top: 40px;
+        width: 280px;
+        text-align: center;
+        color: $primary;
+        font-size: 24px;
+        font-family: 'Lato Bold';
+      }
+
+      .buttonGroup {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 40px;
+
+        .wppButton {
+          margin-right: 10px;
+          img {
+            transition: filter 300ms ease-in-out, transform 300ms ease-in-out;
+            &:hover {
+              transition: filter 300ms ease-in-out, transform 300ms ease-in-out;
+              filter: brightness(1.2);
+              transform: scale(1.1);
+            }
+          }
+        }
+
+        .button {
+          width: 150px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $primary;
+          color: $secondary;
+          font-family: 'Lato Bold';
+          font-size: 16px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 300ms ease-in-out, transform 300ms ease-in-out;
+
+          &:hover {
+            transition: background-color 300ms ease-in-out, transform 300ms ease-in-out;
+            background-color: lighten($primary, 20%);
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import "../../../../../styles/colors.scss";
+
+.accomodationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  margin-top: 40px;
+
+  .accomodationTitle {
+    line-height: 1.2;
+    color: $secondary;
+    text-align: center;
+  }
+}

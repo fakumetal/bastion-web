@@ -1,0 +1,34 @@
+@import "../../../../../styles/colors.scss";
+
+.contactMeContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: $secondary;
+  background-color: $antiflash;
+  padding: 20px;
+  width: 100%;
+  scroll-margin-top: 75px;
+
+  .contactInfo {
+    width: 400px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .link {
+      img {
+        transition: filter 300ms ease-in-out, transform 300ms ease-in-out;
+        &:hover {
+          transition: filter 300ms ease-in-out, transform 300ms ease-in-out;
+          filter: brightness(1.2);
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

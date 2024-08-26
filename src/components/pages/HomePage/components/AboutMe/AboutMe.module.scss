@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+  scroll-margin-top: 95px;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+
+    .text {
+      display: flex;
+      text-align: justify;
+      width: 482px;
+    }
+  }
+
+  .accordions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .accordion {
+    margin: 30px;
+
+    .accordionContent {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+
+      .experience {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        text-align: left;
+      }
+
+      .education {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        text-align: left;
+      }
+    }
+  }
+}

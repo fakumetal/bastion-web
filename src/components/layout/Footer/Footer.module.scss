@@ -1,0 +1,31 @@
+@import '../../../styles/colors.scss';
+
+.footer {
+  background-color: $secondary;
+  margin-top: 40px;
+  font-size: 0.9em;
+
+  .companyInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 0 20px;
+      color: $white;
+      max-width: 300px;
+    }
+  }
+
+  .rightsReservedText {
+    text-align: center;
+    color: $white;
+    margin-bottom: 16px;
+  }
+}

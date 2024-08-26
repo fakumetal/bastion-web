@@ -1,0 +1,45 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/mediaQueries.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: $secondary;
+  background-color: $antiflash;
+  padding: 20px;
+  width: 100%;
+  scroll-margin-top: 75px;
+  text-align: center;
+
+  @include mobile-only {
+    max-width: 300px;
+  }
+
+  .contactInfo {
+    width: 450px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    @include mobile-only {
+      width: 300px;
+    }
+
+    .link {
+      margin-left: 20px;
+      img {
+        transition: filter 300ms ease-in-out, transform 300ms ease-in-out;
+        &:hover {
+          transition: filter 300ms ease-in-out, transform 300ms ease-in-out;
+          filter: brightness(1.2);
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

@@ -1,56 +1,66 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  max-width: 1000px;
-  text-align: center;
-  scroll-margin-top: 95px;
+@import "../../../../../styles/colors.scss";
+@import "../../../../../styles/mediaQueries.scss";
 
-  .content {
+.aboutMe {
+  .container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    scroll-margin-top: 95px;
+    color: $secondary;
+    padding: 40px 0 10px 0;
 
-    .text {
-      display: flex;
-      text-align: justify;
-      width: 482px;
-    }
-  }
-
-  .accordions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-  }
-
-  .accordion {
-    margin: 30px;
-
-    .accordionContent {
+    .content {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       justify-content: space-around;
-      align-items: flex-start;
+      align-items: center;
+      margin-top: 10px;
+      max-width: 1000px;
 
-      .experience {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 400px;
-        text-align: left;
+      @include mobile-only {
+        justify-content: center;
+        max-width: 300px;
       }
 
-      .education {
+      .text {
+        margin-right: 40px;
+        text-align: justify;
+        width: 500px;
+
+        @include mobile-only {
+          margin-right: 0;
+        }
+      }
+
+      .img {
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
-        width: 400px;
-        text-align: left;
+        border-radius: 15px;
+        height: 460px;
+        background-color: $primary;
+
+        @include mobile-only {
+          height: 360px;
+        }
+
+        .profileImage {
+          @include mobile-only {
+            width: 300px;
+            height: 300px;
+          }
+        }
+
+        .name {
+          font-family: 'Nunito Bold';
+          margin-top: 15px;
+        }
       }
     }
   }

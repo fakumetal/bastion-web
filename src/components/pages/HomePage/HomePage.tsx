@@ -1,17 +1,17 @@
 'use client';
 
 import styles from './HomePage.module.scss';
-import { AboutMe, Accomodation, ContactMe, CoursesResume, IntroBanner, PortfolioResume, Staff } from './components';
+import { AboutUs, Accomodation, ServiceProposal, AboutMe, ContactMe, IntroBanner, Reviews } from './components';
 
 export default function HomePage() {
   return (
     <div className={styles.homePageContainer}>
       <IntroBanner />
       <Accomodation />
+      <AboutUs />
+      <Reviews />
+      <ServiceProposal />
       <AboutMe />
-      <Staff />
-      <PortfolioResume />
-      <CoursesResume />
       <ContactMe />
     </div>
   );

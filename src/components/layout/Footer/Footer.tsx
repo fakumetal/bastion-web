@@ -21,17 +21,19 @@ export default function Footer() {
           <ImageWithFallback
             src="/img/logo.png"
             alt="logo"
-            width={350}
-            height={180}
+            width={110}
+            height={120}
           />
         </Button>
         <div className={styles.title}>
-          <Typography variant="h2">Oskar Leon</Typography>
-          <Typography variant="subtitle">Transformando momentos en recuerdos inolvidables</Typography>
+          <Typography variant="h1">Bastión</Typography>
+          <Typography variant="h3">Viví el encanto de la Patagonia</Typography>
         </div>
       </div>
       <div className={styles.rightsReservedText}>
-        <Typography variant="normal">&copy; 2024 Oskar Leon. Todos los derechos reservados.</Typography>
+        <Typography variant="normal">
+          <b>&copy; 2024 Bastión. Todos los derechos reservados.</b>
+        </Typography>
       </div>
     </footer>
   );

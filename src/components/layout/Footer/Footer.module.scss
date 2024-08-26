@@ -1,7 +1,7 @@
 @import '../../../styles/colors.scss';
 
 .footer {
-  background-color: $secondary;
+  background-color: $primary;
   margin-top: 40px;
   font-size: 0.9em;
 
@@ -18,14 +18,14 @@
       align-items: flex-start;
       justify-content: center;
       margin: 0 20px;
-      color: $white;
+      color: $secondary;
       max-width: 300px;
     }
   }
 
   .rightsReservedText {
     text-align: center;
-    color: $white;
+    color: $secondary;
     margin-bottom: 16px;
   }
 }

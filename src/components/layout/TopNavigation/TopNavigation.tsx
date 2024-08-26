@@ -27,7 +27,7 @@ const NAV_BUTTONS = [
   },
   {
     label: 'detrás de bastión',
-    url: '#behindBastion',
+    url: '#aboutMe',
   },
   {
     label: 'contacto',

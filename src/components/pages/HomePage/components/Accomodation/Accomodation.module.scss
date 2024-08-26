@@ -1,4 +1,5 @@
 @import "../../../../../styles/colors.scss";
+@import "../../../../../styles/mediaQueries.scss";
 
 .accomodationContainer {
   display: flex;
@@ -6,7 +7,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 500px;
   overflow: hidden;
   margin-top: 40px;
 
@@ -14,5 +14,55 @@
     line-height: 1.2;
     color: $secondary;
     text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .accomodationSubtitle {
+    color: $secondary;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .accomodationText {
+    width: 581px;
+    color: $secondary;
+    text-align: justify;
+    margin-top: 20px;
+
+    @include mobile-only {
+      width: 300px;
+    }
+  }
+}
+
+.slide {
+  img {
+    border-radius: 15px;
+  }
+
+  .image {
+    @include mobile-only {
+      width: 300px;
+      height: 235px;
+    }
+  }
+}
+
+.carousel {
+  max-height: 450px;
+  max-width: 790px;
+
+  @include mobile-only {
+    width: 300px;
+    max-width: 300px;
+  }
+}
+
+.camera {
+  display: flex;
+  align-items: center;
+
+  > div {
+    transition: opacity 200ms ease-in-out !important;
   }
 }

@@ -8,7 +8,7 @@
   align-items: center;
   width: 100%;
   text-align: center;
-  scroll-margin-top: 95px;
+  scroll-margin-top: 55px;
   color: $secondary;
   background-color: $primary;
   margin-top: 40px;
@@ -27,12 +27,16 @@
       width: 800px;
 
       @include mobile-only {
-        width: 300px;
+        max-width: 300px;
       }
     }
 
     .promoText {
       font-size: 18px;
+
+      @include mobile-only {
+        max-width: 300px;
+      }
     }
   }
 }

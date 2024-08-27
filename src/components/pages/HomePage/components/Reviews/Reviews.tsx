@@ -24,7 +24,7 @@ const REVIEWS = [
 export default function Reviews() {
   return (
     <div
-      id="portfolio"
+      id="reviews"
       className={styles.portafolioContainer}
     >
       <Typography

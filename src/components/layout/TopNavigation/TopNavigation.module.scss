@@ -2,18 +2,18 @@
 @import '../../../styles/mediaQueries.scss';
 
 .topNavigation {
-  position: fixed;   /* Make the top navigation fixed */
-  top: 0;            /* Position it at the top of the page */
-  left: 0;           /* Align it to the left */
-  width: 100%;       /* Make it span the full width of the viewport */
-  z-index: 1000;     /* Ensure it's on top of other content */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
   background-color: $primary;
   box-sizing: border-box;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for better visibility */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   max-height: 75px;
   border-radius: 0 0 12px 12px;
 
@@ -78,7 +78,8 @@
       border-radius: 12px;
 
       button {
-        margin-bottom: 0.5rem;
+      text-transform: capitalize;
+      margin-bottom: 0.5rem;
       }
     }
   }

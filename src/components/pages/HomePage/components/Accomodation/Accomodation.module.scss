@@ -7,8 +7,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  overflow: hidden;
   margin-top: 40px;
+  scroll-margin-top: 95px;
 
   .accomodationTitle {
     line-height: 1.2;
@@ -51,6 +51,7 @@
 .carousel {
   max-height: 450px;
   max-width: 790px;
+  overflow: hidden;
 
   @include mobile-only {
     width: 300px;

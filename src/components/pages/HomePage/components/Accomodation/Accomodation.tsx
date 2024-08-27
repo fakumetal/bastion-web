@@ -1,8 +1,9 @@
 'use client';
 
+import { useEffect, useMemo, useState } from 'react';
 import { Carousel, ImageWithFallback, Typography } from '@/components/common';
-import styles from './Accomodation.module.scss';
 import { SocialNetworks } from '@/components/layout';
+import styles from './Accomodation.module.scss';
 
 const bannerImages = [
   {
@@ -36,6 +37,14 @@ const bannerImages = [
 ];
 
 export default function Accomodation() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const showArrows = useMemo(() => isClient && window.innerWidth > 768, [isClient]);
+
   return (
     <div
       id="accommodation"
@@ -53,37 +62,39 @@ export default function Accomodation() {
       >
         Casa en Villa la Angostura
       </Typography>
-      <Carousel
-        className={styles.carousel}
-        plugins={{ autoplay: true, fade: true, arrows: true }}
-        options={{
-          duration: 1000,
-          cameraClass: styles.camera,
-          align: 'center',
-          circular: true,
-          bound: false,
-          panelsPerView: 0,
-          inputType: ['touch', 'mouse'],
-          moveType: ['strict', { count: 1 }],
-          preventClickOnDrag: false,
-          disableOnInit: false,
-        }}
-      >
-        {bannerImages.map((image, index) => (
-          <div
-            className={styles.slide}
-            key={index}
-          >
-            <ImageWithFallback
-              className={styles.image}
-              src={image.src}
-              alt={image.alt}
-              width={600}
-              height={435}
-            />
-          </div>
-        ))}
-      </Carousel>
+      {isClient ? (
+        <Carousel
+          className={styles.carousel}
+          plugins={{ autoplay: true, fade: true, arrows: showArrows }}
+          options={{
+            duration: 1000,
+            cameraClass: styles.camera,
+            align: 'center',
+            circular: true,
+            bound: false,
+            panelsPerView: 0,
+            inputType: ['touch', 'mouse'],
+            moveType: ['strict', { count: 1 }],
+            preventClickOnDrag: false,
+            disableOnInit: false,
+          }}
+        >
+          {bannerImages.map((image, index) => (
+            <div
+              className={styles.slide}
+              key={index}
+            >
+              <ImageWithFallback
+                className={styles.image}
+                src={image.src}
+                alt={image.alt}
+                width={600}
+                height={435}
+              />
+            </div>
+          ))}
+        </Carousel>
+      ) : null}
       <Typography
         className={styles.accomodationText}
         variant="normal"

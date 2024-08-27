@@ -2,14 +2,15 @@
 @import "../../../../../styles/mediaQueries.scss";
 
 .aboutMe {
-  .container {
+    scroll-margin-top: 55px;
+
+    .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     text-align: center;
-    scroll-margin-top: 95px;
     color: $secondary;
     padding: 40px 0 10px 0;
 

@@ -12,6 +12,10 @@
   width: 100%;
   scroll-margin-top: 75px;
 
+  @include mobile-only {
+    padding: 0;
+  }
+
   .portafolioTitle {
     width: 100%;
     text-align: center;

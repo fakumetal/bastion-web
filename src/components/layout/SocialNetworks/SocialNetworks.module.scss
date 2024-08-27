@@ -28,10 +28,16 @@
 
     @include mobile-only {
       width: 300px;
+      justify-content: center
     }
 
     .link {
       margin-left: 20px;
+
+      @include mobile-only {
+        margin: 15px 10px;
+      }
+
       img {
         transition: filter 300ms ease-in-out, transform 300ms ease-in-out;
         &:hover {

@@ -105,7 +105,7 @@ export default function TopNavigation() {
                 onClick={() => handleNavButtonClick(button.url)}
                 type="button"
               >
-                <Typography variant="subtitle">{button.label}</Typography>
+                <Typography variant="normal">{button.label}</Typography>
               </Button>
             ))}
           </div>

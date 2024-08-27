@@ -8,18 +8,24 @@
   align-items: center;
   width: 100%;
   text-align: center;
-  scroll-margin-top: 95px;
+  scroll-margin-top: 55px;
   color: $secondary;
   background-color: $primary;
   margin-top: 40px;
   padding: 40px 0;
+
+  .subtitle {
+    margin-top: 10px;
+    @include mobile-only {
+      width: 300px;
+    }
+  }
 
   .content {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: 10px;
     max-width: 1000px;
 
     .text {
@@ -33,6 +39,10 @@
 
     .promoText {
       font-size: 18px;
+
+      @include mobile-only {
+        width: 300px;
+      }
     }
   }
 }

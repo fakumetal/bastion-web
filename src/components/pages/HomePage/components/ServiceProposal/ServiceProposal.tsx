@@ -17,7 +17,7 @@ export default function ServiceProposal() {
       </Typography>
       <Typography
         variant="subtitle"
-        className={styles.title}
+        className={styles.subtitle}
       >
         Simplificando la Vida, Enriqueciendo Experiencias
       </Typography>

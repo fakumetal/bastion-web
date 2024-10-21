@@ -1,0 +1,72 @@
+@import '../../../../../styles/colors.scss';
+.completeReservaContainer {
+ 
+    max-width: 600px;
+    margin: 120px auto;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+
+     h2{
+        color: black;
+     }
+     p{
+      color: $secondary;
+      font-weight: 600;
+     }
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .formGroup {
+    margin-bottom: 1rem;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 600;
+  }
+  
+  .formGroup input[type="text"],
+  .formGroup input[type="tel"],
+  .formGroup input[type="email"],
+  .formGroup select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .formGroup input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  button.submitButton {
+    width: 100%;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button.submitButton:hover {
+    background-color: #0056b3;
+  }
+  .formGroup select:disabled {
+    background-color: #f0f0f0;  
+    color: #a0a0a0; 
+    cursor: not-allowed;  
+  }
+  

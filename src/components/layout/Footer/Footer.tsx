@@ -11,6 +11,10 @@ export default function Footer() {
     router.push('/');
   };
 
+  const handleGoToPoliticas = () => {
+    router.push('/politicas');
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.companyInfo}>
@@ -34,6 +38,13 @@ export default function Footer() {
         <Typography variant="normal">
           <b>&copy; 2024 Bastión. Todos los derechos reservados.</b>
         </Typography>
+        <Typography className={styles.privacyPolicyLink} variant="normal">
+          <Button   onClick={handleGoToPoliticas}>
+            Políticas de Privacidad
+          </Button>
+        </Typography>
+  
+   
       </div>
     </footer>
   );

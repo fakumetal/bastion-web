@@ -3,47 +3,64 @@
 import { useState } from 'react';
 import styles from './TopNavigation.module.scss';
 import { Button, Icon, ImageWithFallback, Typography } from '@/components/common';
+import { useAuth } from '@/context/AuthContext';  
+import { getAuth, signOut } from 'firebase/auth'; // Importar la función signOut
+import router from 'next/router';
 
 const NAV_BUTTONS = [
   {
     label: 'inicio',
-    url: '#',
+    url: '/#',
   },
   {
     label: 'alojamiento',
-    url: '#accommodation',
+    url: '/#accommodation',
   },
   {
     label: 'sobre nosotros',
-    url: '#aboutUs',
+    url: '/#aboutUs',
   },
   {
     label: 'reseñas',
-    url: '#reviews',
+    url: '/#reviews',
   },
   {
     label: 'propuesta',
-    url: '#proposal',
+    url: '/#proposal',
   },
   {
     label: 'detrás de bastión',
-    url: '#aboutMe',
+    url: '/#aboutMe',
   },
   {
     label: 'contacto',
-    url: '#contact',
+    url: '/#contact',
   },
 ];
 
 export default function TopNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    //@ts-ignore
+  const { user } = useAuth();   
+  
   const handleNavButtonClick = (url: string) => {
     window.location.href = url;
   };
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Función para cerrar sesión
+  const handleLogout = async () => {
+    const auth = getAuth(); // Obtener la instancia de autenticación
+    try {
+      await signOut(auth); // Cerrar sesión
+      console.log('Sesión cerrada con éxito');
+      router.replace('/');
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
   };
 
   return (
@@ -83,6 +100,24 @@ export default function TopNavigation() {
             </Typography>
           </Button>
         ))}
+        {user && (  // Mostrar el botón solo si el admin está autenticado
+          <>
+            <Button
+              className={styles.navButton}
+              variant="transparent"
+              onClick={() => handleNavButtonClick('/adminPanel')}
+            >
+              <Typography variant="normal">Admin Panel</Typography>
+            </Button>
+            <Button
+              className={styles.navButton} // Estilo para el botón de cerrar sesión
+              variant="transparent"
+              onClick={handleLogout} // Llamar a la función de cerrar sesión
+            >
+              <Typography variant="normal">Cerrar Sesión</Typography>
+            </Button>
+          </>
+        )}
       </div>
       <div className={styles.hamburgerMenu}>
         <Button

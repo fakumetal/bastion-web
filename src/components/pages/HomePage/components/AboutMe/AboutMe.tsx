@@ -24,8 +24,7 @@ export default function AboutMe() {
             <p>
               Soy <b>Lucía Padilla</b>, neuquina de nacimiento y apasionada por el arte, la educación y el desarrollo
               humano. Egresé del colegio secundario Pablo VI en 2006, y desde entonces he seguido mi vocación por las
-              artes visuales, obteniendo un profesorado en esta disciplina que me ha permitido explorar mi creatividad y
-              desarrollar una visión única para el diseño y la estética. Cada rincón de Bastión refleja esta pasión,
+              artes visuales. Cada rincón de Bastión refleja esta pasión,
               donde busco crear espacios que no solo sean visualmente atractivos, sino que también ofrezcan una
               experiencia de tranquilidad y conexión con la naturaleza.
             </p>
@@ -37,7 +36,7 @@ export default function AboutMe() {
             </p>
             <p>
               Además, formo parte de la comunidad de mujeres empresarias "Labor Mujer", donde comparto experiencias y
-              aprendo de otras líderes. Me apasiona el empoderamiento femenino y contribuir al desarrollo de una
+              aprendo de otras líderes. Me apasiona motivar a las personas a desarrollar sus capacidades y contribuir al desarrollo de una
               sociedad más inclusiva. En Bastión, mi objetivo es ofrecer más que un alojamiento: un refugio donde la
               naturaleza y el arte de vivir se encuentran en perfecta armonía.
             </p>

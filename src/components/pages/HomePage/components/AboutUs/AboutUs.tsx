@@ -32,13 +32,13 @@ export default function AboutUs() {
             rodeado de la majestuosidad de la naturaleza.
           </p>
           <p>
-            Acá en Bastión, nos ocupamos de cada detalle para que tu estadía sea inolvidable. Desde la acogedora sala de
+            En <b>Bastión</b>nos ocupamos de cada detalle para que tu estadía sea inolvidable. Desde la acogedora sala de
             estar hasta la vista imponente de las montañas, cada elemento está pensado para brindarte una experiencia de
             descanso y tranquilidad. Sabemos que las vacaciones son momentos para disfrutar, relajarse y crear
             recuerdos, por eso nos esmeramos en ofrecerte el mejor servicio y la mejor atención.
           </p>
           <p>
-            Elegir Bastión es elegir una escapada perfecta, donde la belleza de la naturaleza se mezcla con la comodidad
+            Elegir <b>Bastión</b> es elegir una escapada perfecta, donde la belleza de la naturaleza se mezcla con la comodidad
             y el confort que merecés. Con nosotros, no solo reservas un lugar para dormir, sino una experiencia que te
             renovará el espíritu. Dejá que el murmullo del viento entre los árboles y la serenidad de los lagos te
             envuelvan, mientras nosotros nos encargamos de que cada segundo de tu estadía sea simplemente perfecto.

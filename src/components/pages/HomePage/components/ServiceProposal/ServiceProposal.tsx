@@ -39,7 +39,7 @@ export default function ServiceProposal() {
             cabañas en Villa La Angostura.
           </p>
           <p>
-            <b>Transformando el Trueque en Valor</b> <br /> Lo que comenzó como una iniciativa lúdica y experimental, ha
+            <b>Transformando el Intercambio en Valor</b> <br /> Lo que comenzó como una iniciativa lúdica y experimental, ha
             evolucionado hasta convertirse en el 85% de nuestro modelo de trabajo actual. Sin embargo, no buscamos que
             las personas participen a costo o sacrificando sus productos o servicios. Entendemos que esto es una venta,
             y en cierto modo, un financiamiento mutuo. Es un intercambio justo, donde ambas partes obtienen un valor

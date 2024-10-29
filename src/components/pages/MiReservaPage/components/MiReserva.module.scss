@@ -1,5 +1,5 @@
 // MiReserva.module.scss
-
+@import "../../../../styles/colors.scss";
 .container {
     max-width: 500px;
     margin: 100px auto;
@@ -32,7 +32,7 @@
 
     button {
         padding: 0.5rem 1rem;
-        background-color: #0070f3;
+        background-color: $primary;
         color: #fff;
         border: none;
         border-radius: 4px;

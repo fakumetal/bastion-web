@@ -2,7 +2,7 @@ import { MercadoPagoConfig, Preference } from 'mercadopago';
 
 // Inicializa MercadoPago con tu token de acceso
 
-console.log("Access Token:", process.env.NEXT_PUBLIC_MERCADOPAGO_ACCESS_TOKEN);
+ 
 const client = new MercadoPagoConfig({
     accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN
 });

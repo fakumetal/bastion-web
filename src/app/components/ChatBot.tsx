@@ -33,7 +33,7 @@ const Chatbot = () => {
         //@ts-ignore
         window.Botsonic("init", {
           serviceBaseUrl: "https://api-azure.botsonic.ai",
-          token: process.env.BOTSONIC_TOKEN, // Usa la variable de entorno aquí
+          token: process.env.NEXT_PUBLIC_BOTSONIC_TOKEN, // Usa la variable de entorno aquí
         });
       }
     };

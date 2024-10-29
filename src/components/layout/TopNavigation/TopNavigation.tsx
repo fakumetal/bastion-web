@@ -36,6 +36,10 @@ const NAV_BUTTONS = [
     label: 'contacto',
     url: '/#contact',
   },
+  {
+    label: 'Mi reserva',
+    url: '/mi-reserva',
+  },
 ];
 
 export default function TopNavigation() {
@@ -107,14 +111,14 @@ export default function TopNavigation() {
               variant="transparent"
               onClick={() => handleNavButtonClick('/adminPanel')}
             >
-              <Typography variant="normal">Admin Panel</Typography>
+              <Typography variant="normal"> <p style={{fontSize:'16px'}} >Admin Panel</p> </Typography>
             </Button>
             <Button
               className={styles.navButton} // Estilo para el botón de cerrar sesión
               variant="transparent"
               onClick={handleLogout} // Llamar a la función de cerrar sesión
             >
-              <Typography variant="normal">Cerrar Sesión</Typography>
+              <Typography variant="normal"><p style={{fontSize:'16px'}}>Cerrar Sesión</p></Typography>
             </Button>
           </>
         )}

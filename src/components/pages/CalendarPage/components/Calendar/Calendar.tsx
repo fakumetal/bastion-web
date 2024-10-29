@@ -5,6 +5,7 @@ import 'react-calendar/dist/Calendar.css';
 import styles from './calendar.module.scss';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { appFirebase } from '../../../../../firebase';
+import { Typography } from '@/components/common';
 
 const db = getFirestore(appFirebase);
 
@@ -13,7 +14,7 @@ export default function CustomCalendar() {
   const [occupiedDates, setOccupiedDates] = useState<Date[]>([]);
   const [cantidadPersonas, setCantidadPersonas] = useState<number>(1);
   const [precioTotal, setPrecioTotal] = useState<number>(0);
-
+  const [precioEstadia, setPrecioEstadia] = useState<number>(0);
   useEffect(() => {
     const fetchOccupiedDates = async () => {
       const reservasCollection = collection(db, 'reservas');
@@ -48,13 +49,40 @@ export default function CustomCalendar() {
     fetchOccupiedDates();
   }, []);
 
+
+
+
+  const isDateOccupied = (date: Date) => {
+    return occupiedDates.some((occupiedDate) => date.toDateString() === occupiedDate.toDateString());
+  };
+
+  const isRangeOccupied = (start: Date, end: Date) => {
+    const tempDate = new Date(start);
+    while (tempDate <= end) {
+      if (isDateOccupied(tempDate)) {
+        return true;
+      }
+      tempDate.setDate(tempDate.getDate() + 1);
+    }
+    return false;
+  };
+
+
+
   const handleDateChange = (value: Date | [Date | null, Date | null] | null) => {
-    if (Array.isArray(value)) {
-      setDateRange(value);
-    } else {
+    if (Array.isArray(value) && value[0] && value[1]) {
+      if (isRangeOccupied(value[0], value[1])) {
+        alert("No se puede seleccionar este rango porque contiene fechas ocupadas.");
+      } else {
+        setDateRange(value);
+      }
+    } else if (value instanceof Date) {
       setDateRange([value, null]);
+    } else {
+      setDateRange([null, null]);
     }
   };
+  
 
   const handleNextClick = () => {
     if (dateRange[0] && dateRange[1]) {
@@ -66,7 +94,7 @@ export default function CustomCalendar() {
       localStorage.setItem('reservaDate', JSON.stringify(reservaDate));
 
       // Guardar el precio total y reserva en el localStorage
-      const totalReserva = (precioTotal * 0.8); // 80% del total
+      const totalReserva = (precioEstadia * 0.8); // 80% del total
       const reservaInfo = {
         total: precioTotal,
         reserva: totalReserva,
@@ -75,18 +103,13 @@ export default function CustomCalendar() {
     }
   };
 
-  const isDateOccupied = (date: Date) => {
-    return occupiedDates.some((occupiedDate) => {
-      return date.toDateString() === occupiedDate.toDateString();
-    });
-  };
-
+ 
   const calculatePrice = () => {
     if (dateRange[0] && dateRange[1]) {
       const start = dateRange[0];
       const end = dateRange[1];
       const totalDays = Math.ceil((end.getTime() - start.getTime()) / (1000 * 3600 * 24)) - 1;
-
+  
       let pricePerNight = 0;
       if (cantidadPersonas <= 2) {
         pricePerNight = 80000;
@@ -95,19 +118,25 @@ export default function CustomCalendar() {
       } else if (cantidadPersonas <= 8) {
         pricePerNight = 200000;
       }
-
-      const totalPrice = totalDays * pricePerNight;
+  
+      const cleaningFee = 40000;   
+      const depositFee = 40000;   
+  
+  
+      const totalPrice = (totalDays * pricePerNight) + cleaningFee + depositFee;
+      const estadiaPrice = (totalDays * pricePerNight)
+      setPrecioEstadia(estadiaPrice);
       setPrecioTotal(totalPrice);
     }
   };
-
+  
   useEffect(() => {
     calculatePrice();
   }, [dateRange, cantidadPersonas]);
 
   return (
     <div className={styles.calendarContainer}>
-      <h2>Reserva</h2>
+      <Typography variant={'subtitle'}  >Reservas</Typography>
       <Calendar
         selectRange
         onChange={handleDateChange}
@@ -124,16 +153,9 @@ export default function CustomCalendar() {
         }}
       />
       <div className={styles.infoContainer}>
-        {dateRange[0] && dateRange[1] && (
-          <div className={styles.dateInfo}>
-            <p className={styles.selectedRange}>
-              Check-in: {dateRange[0]?.toLocaleDateString()} 13:00hs <br />
-              Check-Out: {dateRange[1]?.toLocaleDateString()} 10:00hs
-            </p>
-          </div>
-        )}
-        <div className={styles.formGroup}>
-          <label htmlFor="cantidadPersonas">Cantidad de Personas:</label>
+      <div className={styles.formGroup}>
+        <Typography variant={'normal'}> <label htmlFor="cantidadPersonas">Cantidad de Personas:</label></Typography>
+       
           <select
             id="cantidadPersonas"
             name="cantidadPersonas"
@@ -147,13 +169,39 @@ export default function CustomCalendar() {
             ))}
           </select>
         </div>
+        {dateRange[0] && dateRange[1] && (
+          <div className={styles.dateInfo}>
+            <p className={styles.selectedRange}>
+              Check-in:  <strong>{dateRange[0]?.toLocaleDateString()} 13:00hs</strong>  <br />
+              Check-Out: <strong> {dateRange[1]?.toLocaleDateString()} 10:00hs</strong> 
+            </p>
+          </div>
+        )}
+   
 
         {dateRange[0] && dateRange[1] && (
           <div className={styles.priceInfo}>
-            <p>
-              Precio Total: ${precioTotal.toLocaleString()} <br />
-              Reserva (80% del total): ${(precioTotal * 0.8).toLocaleString()}
-            </p>
+<Typography variant="normal" className={styles.typographyContainer}>
+  <p className={styles.cleaningFee}>
+    Tarifa de Limpieza: <strong>$40,000  (por única vez)</strong>
+  </p>
+  <p className={styles.depositFee}>
+    Depósito en garantía: <strong>$40,000  (se devuelve al finalizar la estadía)</strong>
+  </p>
+  <p className={styles.stayPrice}>
+    Precio estadía: <strong>${precioEstadia.toLocaleString()}</strong>
+  </p>
+  <p className={styles.reservePrice}>
+    Reserva (80% de estadía): <strong>${(precioEstadia * 0.8).toLocaleString()}</strong>
+  </p>
+  <p className={styles.totalPrice}>
+    Precio Total: <strong>${precioTotal.toLocaleString()}</strong>
+  </p>
+</Typography>
+
+
+
+         
           </div>
         )}
 

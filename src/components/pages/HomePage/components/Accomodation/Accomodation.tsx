@@ -4,7 +4,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { Carousel, ImageWithFallback, Typography } from '@/components/common';
 import { SocialNetworks } from '@/components/layout';
 import styles from './Accomodation.module.scss';
-
+import Link from 'next/link';
+ 
 const bannerImages = [
   {
     src: '/img/banner/slide1.png',
@@ -62,6 +63,7 @@ export default function Accomodation() {
       >
         Casa en Villa la Angostura
       </Typography>
+      
       {isClient ? (
         <Carousel
           className={styles.carousel}
@@ -95,18 +97,43 @@ export default function Accomodation() {
           ))}
         </Carousel>
       ) : null}
+ 
       <Typography
         className={styles.accomodationText}
         variant="normal"
       >
-        <p>
-          <b>Capacidad:</b> Hasta 8 personas. <br /> <b>Ubicación:</b> Barrio Las Balsas, cerca de Playa Pública Las
-          Balsas. <br />
-          <b>Comodidades:</b> 3 habitaciones, cocina con barra, amplio living comedor con TV y WiFi, baño con bañera,
-          espacio para 3 autos, chulengo y portón eléctrico. Se aceptan mascotas (máximo 2).
-        </p>
+  <p>
+  <b>Capacidad:</b> Hasta 8 personas. <br />
+  <b>Ubicación:</b> Barrio Las Balsas, cerca de Playa Pública Las Balsas. <br />
+  <b>Comodidades:</b> 3 habitaciones, cocina con barra, amplio living comedor con TV y WiFi, baño con bañera, espacio para 3 autos, chulengo y portón eléctrico. <br />
+  <b>Mascotas:</b> Se aceptan hasta 2 mascotas pequeñas. <br />
+  <b>Accesibilidad:</b> El establecimiento es inclusivo y cuenta con instalaciones adaptadas para garantizar comodidad a todos los huéspedes, incluyendo a aquellos con movilidad reducida.</p>
       </Typography>
-      <SocialNetworks title="¡Reservá y desconectá!" />
+      <div className={styles.imageContainer}>
+  <ImageWithFallback
+    src="/img/accesibilidad.png"
+    alt="accesibilidad logo"
+    width={70}
+    height={70}
+  />
+  <ImageWithFallback
+    src="/img/pet.png"
+    alt="pet logo"
+    width={70}
+    height={70}
+  />
+</div>
+
+      <div className={styles.buttonContainer}>
+    <Link href="/working">
+    <button className={styles.reserveButton}>
+    <Typography variant="subtitle">Reservá y desconectá</Typography>
+    </button>
+  </Link>  
+  
+</div>
+      {/* <SocialNetworks title="¡Reservá y desconectá!" /> */}
+      
     </div>
   );
 }

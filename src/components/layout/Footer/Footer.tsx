@@ -38,13 +38,14 @@ export default function Footer() {
         <Typography variant="normal">
           <b>&copy; 2024 Bastión. Todos los derechos reservados.</b>
         </Typography>
-        <Typography className={styles.privacyPolicyLink} variant="normal">
-          <Button   onClick={handleGoToPoliticas}>
-            Políticas de Privacidad
+        <Typography
+          className={styles.privacyPolicyLink}
+          variant="normal"
+        >
+          <Button onClick={handleGoToPoliticas}>
+            <span style={{ fontWeight: '400' }}>Políticas de Privacidad</span>
           </Button>
         </Typography>
-  
-   
       </div>
     </footer>
   );

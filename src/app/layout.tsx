@@ -2,6 +2,7 @@
 import type { Metadata } from 'next';
 import './globals.scss';
 import { AuthProvider } from '@/context/AuthContext'; 
+import Chatbot from './components/ChatBot'
 
 export const metadata: Metadata = {
   title: 'Bastion',
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body>
         <AuthProvider>
           {children}
+          <Chatbot /> 
         </AuthProvider>
       </body>
     </html>

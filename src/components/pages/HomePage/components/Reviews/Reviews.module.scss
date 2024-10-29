@@ -8,7 +8,7 @@
   align-items: center;
   margin-top: 20px;
   background-color: $antiflash;
-  padding: 20px;
+ 
   width: 100%;
   scroll-margin-top: 75px;
 
@@ -62,3 +62,19 @@
     }
   }
 }
+
+ 
+
+.buttonContainer {
+  margin-top: 20px;  
+  display: flex;
+ 
+  justify-content: center; 
+}
+.buttonContainer Button{
+ 
+  border-radius: 8px;
+ 
+}
+ 
+ 

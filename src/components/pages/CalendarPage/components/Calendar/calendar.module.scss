@@ -1,145 +1,160 @@
 @import '../../../../../styles/colors.scss';
+
 .calendarContainer {
   max-width: 800px;
-  margin: 150px auto 0 auto;
+  margin: 120px auto 0 auto;
   text-align: center;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+  padding: 30px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  background-color: #f9f9f9;  // Softer background
+  color: #333;
+
+  h2 {
+    color: $secondary;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
 
   .customCalendar {
     width: 100%;  
+    max-width: 800px; // Increased the max width of the calendar
+    margin: 20px auto 0 auto;
+    padding: 15px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    
   }
 
-  h2 {
-    color:$secondary
-  }
-.totalPrice{
-  color:$secondary;
-  font-weight: 600;
-}
   .react-calendar {
-    width: 100%;  
-    max-width: 600px; 
-    background: white;
-    border: 1px solid  $secondary;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.125em;
+    border: none;
+    &__tile {
+      border-radius: 8px;
+      padding: 15px;
+      font-weight: 500;
+      color: #555;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #e8f1fd;
+        color: $primary;
+        box-shadow: 0 0 8px rgba(0, 112, 243, 0.2);
+      }
+
+      &--active {
+        background-color: $primary;
+        color: #ffffff;
+        border-radius: 8px;
+      }
+
+      &--disabled {
+        background-color: #f0f0f0;
+        color: #ccc;
+      }
+    }
 
     &__month-view__weekdays {
       abbr {
-        color: black; 
-        font-weight: bold;
+        text-decoration: none;
+        font-size: 14px;
+        color: #555;
       }
-    }
-
-    &__tile {
-      padding: 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: #f0f0f0;
-      }
-    }
-
-    &__tile--active {
-      background-color: #007bff;
-      color: #fff;
     }
   }
 
-  .modal {
-    background-color: white;
-    padding: 20px;
+  .occupiedDate {
+    background-color: rgba(255, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .selectedRange {
-    margin-top: 10px;
-    font-weight: bold;
-    color: black;
+    position: relative;
   }
 }
-
-.nextButton {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #0070f3;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #005bb5;
-  }
-}
-
-.occupiedDate {
-  background-color: red;
-  height: 100%;
-  width: 100%;
-  border-radius: 0;
-}
-
 
 .infoContainer {
-  background-color: #f9f9f9; /* Fondo suave */
-  border-radius: 10px; /* Bordes redondeados */
-  padding: 20px; /* Espaciado interno */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
- }
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
-.dateInfo {
+  .formGroup {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+   justify-content: center;
+    label {
+      font-size: 18px;
+      color: $secondary;
+      font-weight: 700;
+      margin-right: 50px;
+    }
+
+    select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid $secondary;
+      background-color: #f7f9fc;
+      color: #333;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: $primary;
+      }
+    }
+  }
+
+  .dateInfo {
+    font-size: 18px;
+    color: $secondary;
+    font-weight: 500;
+    margin-bottom: -10px;
+    text-align: left; 
+  }
+  
+  .priceInfo {
+    margin-top: 15px;
+
+ 
+  }
+
+  .nextButton {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: $primary;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken($success, 10%);
+    }
+  }
+}
+
+.cleaningFee, .depositFee, .stayPrice {
+  font-size: 1.1rem; 
+ margin-bottom: -10px;
+  color: #333;  
+ 
+ 
+}
+.totalPrice, .reservePrice{
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: -15px;
+}
+ 
+.typographyContainer {
   display: flex;
-  flex-direction: column; /* Colocar los elementos en columna */
- }
-
-.selectedRange {
-  font-size: 16px; /* Tamaño de texto */
-  color: #333; /* Color del texto */
-  font-weight: 500; /* Negrita ligera */
-}
-
-.totalPrice {
-  font-size: 18px; /* Tamaño de texto para el total */
-  color: #007BFF; /* Color azul */
-  font-weight: 600; /* Negrita */
-}
-
-.reservePrice {
-  font-size: 16px; /* Tamaño de texto */
-  color: #666; /* Color gris para un texto secundario */
-  text-decoration: underline; /* Subrayar para destacar */
-}
-
-.nextButton {
-  background-color: #28a745; /* Color verde */
-  color: white; /* Texto blanco */
-  border: none; /* Sin borde */
-  border-radius: 5px; /* Bordes redondeados */
-  padding: 10px 20px; /* Espaciado interno */
-  cursor: pointer; /* Cambiar cursor al pasar */
-  font-size: 16px; /* Tamaño de texto */
-  transition: background-color 0.3s; /* Transición suave */
-}
-
-.nextButton:hover {
-  background-color: #218838; /* Color verde oscuro al pasar */
-}
-.priceInfo{
-  p {
-    color:$secondary
-  }
-}
-.formGroup{
-  label {
-    color:$secondary;
-    margin-left: 20px;
-  }
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
 }

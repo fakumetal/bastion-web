@@ -68,34 +68,80 @@ export default function CompleteReserva() {
         return true; // Todo es válido
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-
-        if (!validateForm()) {
-            return; 
-        }
-
-        const confirmed = window.confirm("¿Estás seguro de que deseas continuar con la reserva?");
-        if (!confirmed) {
-            return; 
-        }
-
-        const reservaData = {
-            ...formData,
-            startDate: reservaDates?.startDate,
-            endDate: reservaDates?.endDate,
-            createdAt: new Date(),  
-        };
-
+    const saveReservaToFirestore = async (reservaData: any) => {
         try {
             const docRef = await addDoc(collection(db, 'reservas'), reservaData);
-            console.log("Reserva guardada con ID: ", docRef.id);
-            alert("Reserva realizada con éxito"); 
+            console.log('Reserva guardada con ID: ', docRef.id);
         } catch (error) {
-            console.error("Error al guardar la reserva: ", error);
-            alert("Error al realizar la reserva. Intenta nuevamente."); 
+            console.error("Error al guardar la reserva en Firestore: ", error);
+            alert("Error al guardar la reserva. Intenta nuevamente.");
         }
     };
+    
+    // Llama esta función al confirmar el pago
+    const checkPaymentStatus = async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentStatus = urlParams.get('status');
+        const paymentId = urlParams.get('payment_id');
+    
+        if (paymentStatus === 'approved') {
+            // Datos de la reserva a guardar
+            const reservaData = {
+                paymentId,
+                ...formData // datos del formulario
+            };
+            await saveReservaToFirestore(reservaData);
+        }
+    };
+    
+    // Llama esta función en un useEffect cuando el componente cargue
+    useEffect(() => {
+        checkPaymentStatus();
+    }, []);
+// CompleteReserva.tsx
+const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    const confirmed = window.confirm("¿Estás seguro de que deseas continuar con la reserva?");
+    if (!confirmed) return;
+
+    try {
+ 
+        const reservaData = {
+            nombre: formData.nombre,
+            telefono: formData.telefono,
+            email: formData.email,
+            cantidadPersonas: reservaDates?.cantidadPersonas || formData.cantidadPersonas,
+            chocolates: formData.chocolates,
+            toallones: formData.toallones,
+            toallas: formData.toallas,
+            total: reservaInfo?.total,
+            reserva: reservaInfo?.reserva,
+            startDate: reservaDates?.startDate,  
+            endDate: reservaDates?.endDate       
+        };
+
+   
+        localStorage.setItem('reservaData', JSON.stringify(reservaData));
+
+        // Crear preferencia de pago
+        const response = await fetch('http://localhost:8888/.netlify/functions/create_preference', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ reserva:  1, ...formData }),
+        });
+
+        const preferenceData = await response.json();
+
+        // Redirigir al usuario a la página de pago de MercadoPago
+        window.location.href = preferenceData.init_point;
+    } catch (error) {
+        console.error("Error al crear la preferencia de pago: ", error);
+        alert("Error al procesar el pago. Intenta nuevamente.");
+    }
+};
 
     return (
         <div className={styles.completeReservaContainer}>
@@ -214,7 +260,7 @@ export default function CompleteReserva() {
                         ))}
                     </select>
                 </div>
-                <button type="submit" className={styles.submitButton}>
+                <button type="submit" className={styles.nextButton}>
                     Siguiente
                 </button>
             </form>

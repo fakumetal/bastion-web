@@ -61,6 +61,10 @@
     transition: background-color 0.3s;
   }
   
+
+
+
+  
   button.submitButton:hover {
     background-color: #0056b3;
   }
@@ -70,3 +74,20 @@
     cursor: not-allowed;  
   }
   
+
+  .nextButton {
+    margin-top: 20px;
+    width: 100%;
+    padding: 0.7rem;
+    background-color: $primary;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken($success, 10%);
+    }
+  }

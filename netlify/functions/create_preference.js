@@ -4,7 +4,7 @@ import { MercadoPagoConfig, Preference } from 'mercadopago';
 
  
 const client = new MercadoPagoConfig({
-    accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN
+    accessToken: process.env.NEXT_PUBLIC_MERCADOPAGO_ACCESS_TOKEN
 });
 
 const handler = async (event) => {

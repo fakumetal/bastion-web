@@ -126,7 +126,7 @@ const handleSubmit = async (e: React.FormEvent) => {
    
         localStorage.setItem('reservaData', JSON.stringify(reservaData));
  
-        const response = await fetch('https://bastionalquileres.com/netlify/functions/create_preference', {
+        const response = await fetch('https://bastionalquileres.com/.netlify/functions/create_preference', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ reserva:  reservaData.reserva, ...formData }),

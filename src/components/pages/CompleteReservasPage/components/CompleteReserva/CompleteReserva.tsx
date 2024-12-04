@@ -69,7 +69,13 @@ export default function CompleteReserva() {
     };
 
     const saveReservaToFirestore = async (reservaData: any) => {
-   ""
+        try {
+            const docRef = await addDoc(collection(db, 'reservas'), reservaData);
+            console.log('Reserva guardada con ID: ', docRef.id);
+        } catch (error) {
+            console.error("Error al guardar la reserva en Firestore: ", error);
+            alert("Error al guardar la reserva. Intenta nuevamente.");
+        }
     };
     
     // Llama esta función al confirmar el pago
@@ -120,7 +126,7 @@ const handleSubmit = async (e: React.FormEvent) => {
    
         localStorage.setItem('reservaData', JSON.stringify(reservaData));
  
-        const response = await fetch('https://bastionalquileres.com/.netlify/functions/create_preference', {
+        const response = await fetch('https://www.bastionalquileres.com/.netlify/functions/create_preference', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ reserva:  reservaData.reserva, ...formData }),

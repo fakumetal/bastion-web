@@ -6,7 +6,7 @@ import styles from './Reviews.module.scss';
 const REVIEWS = [
   {
     stars: 5,
-    text: 'Todo muy hermoso! Y lo que más a destacar es la calidad humana de los dueños, hacen todo mucho pulmón y corazón ❤️',
+    text: 'Un lugar súper cómodo y mantenido. Las instalaciones están impecables, y la atención de los dueños de primera. Recomendable para pasar unos días geniales.',
     name: 'Romina Laguna',
   },
   {

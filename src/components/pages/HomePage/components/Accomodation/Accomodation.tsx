@@ -125,7 +125,7 @@ export default function Accomodation() {
 </div>
 
       <div className={styles.buttonContainer}>
-    <Link href="/working">
+    <Link href="/reservas">
     <button className={styles.reserveButton}>
     <Typography variant="subtitle">Reservá y desconectá</Typography>
     </button>

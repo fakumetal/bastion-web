@@ -69,13 +69,7 @@ export default function CompleteReserva() {
     };
 
     const saveReservaToFirestore = async (reservaData: any) => {
-        try {
-            const docRef = await addDoc(collection(db, 'reservas'), reservaData);
-            console.log('Reserva guardada con ID: ', docRef.id);
-        } catch (error) {
-            console.error("Error al guardar la reserva en Firestore: ", error);
-            alert("Error al guardar la reserva. Intenta nuevamente.");
-        }
+   ""
     };
     
     // Llama esta función al confirmar el pago
@@ -94,11 +88,11 @@ export default function CompleteReserva() {
         }
     };
     
-    // Llama esta función en un useEffect cuando el componente cargue
+ 
     useEffect(() => {
         checkPaymentStatus();
     }, []);
-// CompleteReserva.tsx
+ 
 const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -125,17 +119,16 @@ const handleSubmit = async (e: React.FormEvent) => {
 
    
         localStorage.setItem('reservaData', JSON.stringify(reservaData));
-
-        // Crear preferencia de pago
-        const response = await fetch('http://localhost:8888/.netlify/functions/create_preference', {
+ 
+        const response = await fetch('https://bastionalquileres.com/.netlify/functions/create_preference', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ reserva:  1, ...formData }),
+            body: JSON.stringify({ reserva:  reservaData.reserva, ...formData }),
         });
 
         const preferenceData = await response.json();
 
-        // Redirigir al usuario a la página de pago de MercadoPago
+       
         window.location.href = preferenceData.init_point;
     } catch (error) {
         console.error("Error al crear la preferencia de pago: ", error);
@@ -197,7 +190,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     />
                 </div>
                 <div className={styles.formGroup}>
-                    <label htmlFor="cantidadPersonas">Cantidad de Personas:</label>
+                    <label htmlFor="cantidadPersonas">Cantidad de personas:</label>
                     <select
                         id="cantidadPersonas"
                         name="cantidadPersonas"
@@ -260,9 +253,11 @@ const handleSubmit = async (e: React.FormEvent) => {
                         ))}
                     </select>
                 </div>
+                <span style={{color:'red'}}>Una vez hecho el pago espera la redirección a Bastion para obtener los datos de tu reserva y poder visualizarla. ¡No olvides guardarlos! </span>
                 <button type="submit" className={styles.nextButton}>
                     Siguiente
                 </button>
+             
             </form>
         </div>
     );

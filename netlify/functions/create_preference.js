@@ -23,10 +23,9 @@ const handler = async (event) => {
                     },
                 ],
                 back_urls: {
-                    
-                    success: 'http://localhost:8888/success',
-                    failure: 'http://localhost:8888/failure',
-                    pending: 'http://localhost:8888/pending',
+                    success: 'https://bastionalquileres.com/success',
+                    failure: 'https://bastionalquileres.com/failure',
+                    pending: 'https://bastionalquileres.com/pending',
                 },
                 auto_return: 'approved',
             },

@@ -112,11 +112,11 @@ export default function CustomCalendar() {
   
       let pricePerNight = 0;
       if (cantidadPersonas <= 2) {
-        pricePerNight = 80000;
+        pricePerNight = 120000;
       } else if (cantidadPersonas <= 4) {
-        pricePerNight = 170000;
-      } else if (cantidadPersonas <= 8) {
         pricePerNight = 200000;
+      } else if (cantidadPersonas <= 8) {
+        pricePerNight = 320000;
       }
   
       const cleaningFee = 40000;   

@@ -7,7 +7,7 @@ export async function handler(event) {
         payment_id,
         status
     });
-    const redirectUrl = `http://localhost:3000/success?payment_id=${payment_id}&status=${status}`;
+    const redirectUrl = `https://bastionalquileres.com/success?payment_id=${payment_id}&status=${status}`;
     return {
         statusCode: 302,
         headers: {

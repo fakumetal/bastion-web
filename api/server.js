@@ -28,8 +28,8 @@ app.post('/create_preference', async (req, res) => {
                 ],
                 back_urls: {
                     success: 'http://localhost:3001/success',
-                    failure: 'http://localhost:3000/failure',
-                    pending: 'http://localhost:3000/pending',
+                    failure: 'http://localhost:3001/failure',
+                    pending: 'http://localhost:3001/pending',
                 },
                 auto_return: 'approved',
             },
@@ -52,7 +52,7 @@ app.get('/success', (req, res) => {
         status
     });
  
-    res.redirect(`http://localhost:3000/success?payment_id=${payment_id}&status=${status}`);
+    res.redirect(`http://localhost:3001/success?payment_id=${payment_id}&status=${status}`);
 });
 
  

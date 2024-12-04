@@ -40,6 +40,10 @@ const NAV_BUTTONS = [
     label: 'Mi reserva',
     url: '/mi-reserva',
   },
+  {
+    label: 'Reservar',
+    url: '/reservas',
+  },
 ];
 
 export default function TopNavigation() {
@@ -57,9 +61,9 @@ export default function TopNavigation() {
 
   // Función para cerrar sesión
   const handleLogout = async () => {
-    const auth = getAuth(); // Obtener la instancia de autenticación
+    const auth = getAuth();  
     try {
-      await signOut(auth); // Cerrar sesión
+      await signOut(auth);  
       console.log('Sesión cerrada con éxito');
       router.replace('/');
     } catch (error) {
@@ -104,7 +108,7 @@ export default function TopNavigation() {
             </Typography>
           </Button>
         ))}
-        {user && (  // Mostrar el botón solo si el admin está autenticado
+        {user && (  
           <>
             <Button
               className={styles.navButton}
@@ -114,9 +118,9 @@ export default function TopNavigation() {
               <Typography variant="normal"> <p style={{fontSize:'16px'}} >Admin Panel</p> </Typography>
             </Button>
             <Button
-              className={styles.navButton} // Estilo para el botón de cerrar sesión
+              className={styles.navButton}  
               variant="transparent"
-              onClick={handleLogout} // Llamar a la función de cerrar sesión
+              onClick={handleLogout}  
             >
               <Typography variant="normal"><p style={{fontSize:'16px'}}>Cerrar Sesión</p></Typography>
             </Button>

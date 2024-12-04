@@ -7,11 +7,11 @@ import styles from './reservas.module.scss';
 const Reservas: React.FC = () => {
   return (
     <div className={styles.pageContainer}>
-      {/* <TopNavigation />
+       <TopNavigation />
       <div className={styles.content}>
         <CalendarPage />
       </div>
-      <Footer /> */}
+      <Footer />  
     </div>
   );
 };

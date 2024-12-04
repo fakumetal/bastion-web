@@ -14,11 +14,11 @@ const Loading = () => (
 const Reservas: React.FC = () => {
   return (
     <div>
-      {/* <TopNavigation />
+        <TopNavigation />
       <Suspense fallback={<Loading />}>
         <PaymenSuccessPage />
       </Suspense>
-      <Footer /> */}
+      <Footer /> 
     </div>
   );
 };

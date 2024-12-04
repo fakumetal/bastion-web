@@ -6,9 +6,9 @@ import { CompleteReservaPage } from '@/components/pages';
 const Reservas: React.FC = () => {
   return (
     <div  >
-      {/* <TopNavigation />
+       <TopNavigation />
       <CompleteReservaPage />
-      <Footer /> */}
+      <Footer />  
     </div>
   );
 };

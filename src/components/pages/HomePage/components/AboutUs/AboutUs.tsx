@@ -27,29 +27,23 @@ export default function AboutUs() {
           </p>
           <p>
             Nuestro proyecto nació del amor por esta tierra y del deseo de compartirla con aquellos que, como vos,
-            buscan un lugar donde desconectar del mundo y reconectar con lo esencial. Cada cabaña y cada casa que
-            ofrecemos ha sido diseñada y equipada pensando en tu comodidad, para que sientas la calidez de un hogar,
+            buscan un lugar donde desconectar del mundo y reconectar con lo esencial, para que sientas la calidez de un hogar,
             rodeado de la majestuosidad de la naturaleza.
           </p>
           <p>
-            En <b>Bastión</b>nos ocupamos de cada detalle para que tu estadía sea inolvidable. Desde la acogedora sala de
-            estar hasta la vista imponente de las montañas, cada elemento está pensado para brindarte una experiencia de
-            descanso y tranquilidad. Sabemos que las vacaciones son momentos para disfrutar, relajarse y crear
-            recuerdos, por eso nos esmeramos en ofrecerte el mejor servicio y la mejor atención.
+            En <b>Bastión</b> nos ocupamos de cada detalle para que tu estadía sea inolvidable. Desde la acogedora sala de
+            estar hasta la vista imponente de las montañas. Sabemos que las vacaciones son momentos para disfrutar, relajarse.
           </p>
           <p>
             Elegir <b>Bastión</b> es elegir una escapada perfecta, donde la belleza de la naturaleza se mezcla con la comodidad
             y el confort que merecés. Con nosotros, no solo reservas un lugar para dormir, sino una experiencia que te
-            renovará el espíritu. Dejá que el murmullo del viento entre los árboles y la serenidad de los lagos te
-            envuelvan, mientras nosotros nos encargamos de que cada segundo de tu estadía sea simplemente perfecto.
-            Estamos orgullosos de ser parte de esta comunidad y de poder ofrecerte un refugio en este paraíso
-            patagónico. Vení a descubrir por qué Bastión es más que un lugar, es una experiencia que te acompañará mucho
+            renovará el espíritu. Vení a descubrir por qué Bastión es más que un lugar, es una experiencia que te acompañará mucho
             después de haber regresado a casa.
           </p>
         </Typography>
         <Typography variant="normal">
           <p className={styles.promoText}>
-            <b>¡Te esperamos con los brazos abiertos en Bastión, tu hogar en la Patagonia!</b>
+            <b>¡Te esperamos en Bastión, tu hogar en la Patagonia!</b>
           </p>
         </Typography>
       </div>

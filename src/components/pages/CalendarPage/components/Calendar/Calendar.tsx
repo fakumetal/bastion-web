@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import styles from './calendar.module.scss';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import { appFirebase } from '../../../../../firebase';
 import { Typography } from '@/components/common';
 
@@ -15,6 +15,8 @@ export default function CustomCalendar() {
   const [cantidadPersonas, setCantidadPersonas] = useState<number>(1);
   const [precioTotal, setPrecioTotal] = useState<number>(0);
   const [precioEstadia, setPrecioEstadia] = useState<number>(0);
+  const [precios, setPrecios] = useState<any>(null);  // Estado para los precios
+
   useEffect(() => {
     const fetchOccupiedDates = async () => {
       const reservasCollection = collection(db, 'reservas');
@@ -46,11 +48,19 @@ export default function CustomCalendar() {
       setOccupiedDates(dates);
     };
 
+    const fetchPrecios = async () => {
+      const preciosDoc = await getDoc(doc(db, 'precios', 'tarifas'));
+      
+      if (preciosDoc.exists()) {
+        setPrecios(preciosDoc.data());
+      } else {
+        console.error('No se encontraron los precios en la base de datos');
+      }
+    };
+
     fetchOccupiedDates();
+    fetchPrecios();  // Llamamos a la función para obtener los precios
   }, []);
-
-
-
 
   const isDateOccupied = (date: Date) => {
     return occupiedDates.some((occupiedDate) => date.toDateString() === occupiedDate.toDateString());
@@ -66,8 +76,6 @@ export default function CustomCalendar() {
     }
     return false;
   };
-
-
 
   const handleDateChange = (value: Date | [Date | null, Date | null] | null) => {
     if (Array.isArray(value) && value[0] && value[1]) {
@@ -103,28 +111,27 @@ export default function CustomCalendar() {
     }
   };
 
- 
   const calculatePrice = () => {
-    if (dateRange[0] && dateRange[1]) {
+    if (dateRange[0] && dateRange[1] && precios) {
       const start = dateRange[0];
       const end = dateRange[1];
       const totalDays = Math.ceil((end.getTime() - start.getTime()) / (1000 * 3600 * 24)) - 1;
   
       let pricePerNight = 0;
       if (cantidadPersonas <= 2) {
-        pricePerNight = 120000;
+        pricePerNight = parseFloat(precios.hasta2Personas);  // Usamos el precio de Firebase
       } else if (cantidadPersonas <= 4) {
-        pricePerNight = 200000;
+        pricePerNight = parseFloat(precios.hasta4Personas);  // Usamos el precio de Firebase
       } else if (cantidadPersonas <= 8) {
-        pricePerNight = 320000;
+        pricePerNight = parseFloat(precios.hasta8Personas);  // Usamos el precio de Firebase
       }
   
-      const cleaningFee = 40000;   
-      const depositFee = 40000;   
-  
+      const cleaningFee = parseFloat(precios.tarifaLimpieza);  // Usamos la tarifa de limpieza de Firebase
+      const depositFee = parseFloat(precios.depositoGarantia);  // Usamos el depósito de garantía de Firebase
   
       const totalPrice = (totalDays * pricePerNight) + cleaningFee + depositFee;
-      const estadiaPrice = (totalDays * pricePerNight)
+      const estadiaPrice = (totalDays * pricePerNight);
+      
       setPrecioEstadia(estadiaPrice);
       setPrecioTotal(totalPrice);
     }
@@ -132,8 +139,7 @@ export default function CustomCalendar() {
   
   useEffect(() => {
     calculatePrice();
-  }, [dateRange, cantidadPersonas]);
-
+  }, [dateRange, cantidadPersonas, precios]); 
   return (
     <div className={styles.calendarContainer}>
       <Typography variant={'subtitle'}  >Reservas</Typography>
@@ -182,12 +188,13 @@ export default function CustomCalendar() {
         {dateRange[0] && dateRange[1] && (
           <div className={styles.priceInfo}>
 <Typography variant="normal" className={styles.typographyContainer}>
-  <p className={styles.cleaningFee}>
-    Tarifa de Limpieza: <strong>$40,000  (por única vez)</strong>
-  </p>
-  <p className={styles.depositFee}>
-    Depósito en garantía: <strong>$40,000  (se devuelve al finalizar la estadía)</strong>
-  </p>
+<p className={styles.cleaningFee}>
+  Tarifa de Limpieza: <strong>${precios ? precios.tarifaLimpieza : 'Cargando...'} (por única vez)</strong>
+</p>
+<p className={styles.depositFee}>
+  Depósito en garantía: <strong>${precios ? precios.depositoGarantia : 'Cargando...'} (se devuelve al finalizar la estadía)</strong>
+</p>
+
   <p className={styles.stayPrice}>
     Precio estadía: <strong>${precioEstadia.toLocaleString()}</strong>
   </p>

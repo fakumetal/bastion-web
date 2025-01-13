@@ -39,6 +39,20 @@ const Chatbot = () => {
     };
 
     loadBotsonic();
+
+    // Al cargar el script y widget, intentamos aplicar estilos al widget
+    const applyStyles = () => {
+      const chatbotElement = document.querySelector('.botsonic-widget'); // La clase del widget Botsonic
+      if (chatbotElement) {
+        chatbotElement.setAttribute('style', 'position: fixed !important; bottom: 20px !important; right: 20px !important; z-index: 9999 !important;');
+      }
+    };
+
+    // Escuchar hasta que el widget se haya cargado e insertar los estilos
+    window.addEventListener('load', applyStyles);
+    return () => {
+      window.removeEventListener('load', applyStyles);
+    };
   }, []);
 
   return null;  

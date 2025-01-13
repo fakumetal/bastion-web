@@ -55,13 +55,13 @@ export default function Accomodation() {
         className={styles.accomodationTitle}
         variant="title"
       >
-        Alojamientos
+        Alojamiento
       </Typography>
       <Typography
         className={styles.accomodationSubtitle}
         variant="subtitle"
       >
-        Casa en Villa la Angostura
+         ¡ Tu casa en la cordillera !
       </Typography>
       
       {isClient ? (
@@ -123,7 +123,7 @@ export default function Accomodation() {
     height={70}
   />
 </div>
-
+ 
       <div className={styles.buttonContainer}>
     <Link href="/reservas">
     <button className={styles.reserveButton}>
@@ -132,6 +132,8 @@ export default function Accomodation() {
   </Link>  
   
 </div>
+ 
+
       {/* <SocialNetworks title="¡Reservá y desconectá!" /> */}
       
     </div>

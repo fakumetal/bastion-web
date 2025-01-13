@@ -35,8 +35,8 @@ export default function AboutMe() {
               inolvidable.
             </p>
             <p>
-              Además, formo parte de la comunidad de mujeres empresarias "Labor Mujer", donde comparto experiencias y
-              aprendo de otras líderes. Me apasiona motivar a las personas a desarrollar sus capacidades y contribuir al desarrollo de una
+             {/*  Además, formo parte de la comunidad de mujeres empresarias "Labor Mujer", donde comparto experiencias y
+              aprendo de otras líderes.  */}Me apasiona motivar a las personas a desarrollar sus capacidades y contribuir al desarrollo de una
               sociedad más inclusiva. En Bastión, mi objetivo es ofrecer más que un alojamiento: un refugio donde la
               naturaleza y el arte de vivir se encuentran en perfecta armonía.
             </p>

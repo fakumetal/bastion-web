@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+ 
   background-color: $primary;
   box-sizing: border-box;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -36,7 +36,7 @@
   .navButtons {
     display: flex;
     justify-content: flex-end;
-  width: 70%;
+  width: 90%;
 
     @include mobile-and-tablet-only {
       display: none;

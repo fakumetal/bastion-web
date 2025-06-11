@@ -7,9 +7,9 @@ import styles from './Accomodation.module.scss';
 import Link from 'next/link';
  
 const bannerImages = [
-  {
-    src: '/img/banner/slide1.png',
-    alt: 'Slide 1',
+    {
+    src: '/img/banner/slide7.png',
+    alt: 'Slide 7',
   },
   {
     src: '/img/banner/slide2.png',
@@ -32,11 +32,31 @@ const bannerImages = [
     alt: 'Slide 6',
   },
   {
-    src: '/img/banner/slide7.png',
-    alt: 'Slide 7',
+    src: '/img/banner/slide1.png',
+    alt: 'Slide 1',
+  },
+  {
+    src: '/img/banner/slide8.png',
+    alt: 'Slide 8',
+  },
+  {
+    src: '/img/banner/slide9.png',
+    alt: 'Slide 9',
+  },
+  
+  {
+    src: '/img/banner/slide11.png',
+    alt: 'Slide 11',
+  },
+  {
+    src: '/img/banner/slide12.png',
+    alt: 'Slide 12',
+  },
+  {
+    src: '/img/banner/slide13.png',
+    alt: 'Slide 13',
   },
 ];
-
 export default function Accomodation() {
   const [isClient, setIsClient] = useState(false);
 
